@@ -82,16 +82,16 @@ function toggleFullScreen() {
 
 <template>
   <div class="flex flex-col overflow-y-auto" :class="{ 'p-4 w-72': !miniMenu, 'p-2 w-16 content-center': miniMenu }">
-    <div class="flex justify-between mb-2" :class="{ 'flex-col': miniMenu }">
-      <UAvatar v-if="miniMenu" class="my-4 w-10 h-10" name="ORBE" description="ERP Software" size="2xl"
+    <div class="flex my-2" :class="{ 'flex-col gap-4': miniMenu }">
+      <UAvatar v-if="miniMenu" class="m-auto w-10 h-10" name="ORBE" description="ERP Software" size="2xl"
         :src=brandLogo />
       <UUser v-if="!miniMenu" class="my-6 w-5/6" name="ORBE ERP" description="ERP Software" size="2xl" :avatar="{
         src: brandLogo,
         icon: 'i-lucide-image'
       }" />
-      <UButton class="m-auto hidden sm:block" :class="{ 'w-full': miniMenu }"
-        :icon="miniMenu ? 'material-symbols:keyboard-double-arrow-right' : 'material-symbols:keyboard-double-arrow-left'" @click="toggleMenu"
-        variant="ghost" size="xl" />
+      <UButton class="hidden sm:block" :description="miniMenu ? 'Expand menu' : 'Collapse menu'"
+        :icon="miniMenu ? 'material-symbols:keyboard-double-arrow-right' : 'material-symbols:keyboard-double-arrow-left'"
+        @click="toggleMenu" variant="soft" size="xl" />
     </div>
     <p v-if="!miniMenu" class="text-sm mt-3">Main</p>
     <USeparator class="mb-2" />
