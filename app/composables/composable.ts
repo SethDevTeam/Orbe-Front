@@ -10,18 +10,26 @@ var clients = ref([
     { id: 8, name: "client 8" , address: "address 8", phone: "phone 8", email: "email 8"},
 ])
 
-var inventary = ref([
-    { id: 1, name: "item 1", price: 100, stock: 10, tags: ["tag 1", "tag 2"], description: "description 1", picture: "https://picsum.dev/image/1275/view" },
-    { id: 2, name: "item 2", price: 200, stock: 20, tags: ["tag 3", "tag 4"], description: "description 2", picture: "https://picsum.dev/image/1276/view" },
-    { id: 3, name: "item 3", price: 300, stock: 30, tags: ["tag 5", "tag 6"], description: "description 3", picture: "https://picsum.dev/image/1277/view" },
-    { id: 4, name: "item 4", price: 400, stock: 40, tags: ["tag 7", "tag 8"], description: "description 4", picture: "https://picsum.dev/image/1278/view" },
-    { id: 5, name: "item 5", price: 500, stock: 50, tags: ["tag 9", "tag 10"], description: "description 5", picture: "https://picsum.dev/image/1279/view" },
-    { id: 6, name: "item 6", price: 600, stock: 60, tags: ["tag 11", "tag 12"], description: "description 6", picture: "https://picsum.dev/image/1280/view" },
-    { id: 7, name: "item 7", price: 700, stock: 70, tags: ["tag 13", "tag 14"], description: "description 7", picture: "https://picsum.dev/image/1281/view" },
-    { id: 8, name: "item 8", price: 800, stock: 80, tags: ["tag 15", "tag 16"], description: "description 8", picture: "https://picsum.dev/image/1282/view" },
-    { id: 9, name: "item 9", price: 900, stock: 90, tags: ["tag 17", "tag 18"], description: "description 9", picture: "https://picsum.dev/image/1283/view" },
-    { id: 10, name: "item 10", price: 1000, stock: 100, tags: ["tag 19", "tag 20"], description: "description 10", picture: "https://picsum.dev/image/1284/view" },
+var inventory = ref([
+    { id: 1, name: "Intel core i5 9700kf", price: 100, stock: 10, tags: ["tag 1", "tag 2"], description: "description 1", picture: "https://picsum.dev/image/1275/view" , category: "category 1", iStatus: "" },
+    { id: 2, name: "item 2", price: 200, stock: 20, tags: ["tag 3", "tag 4"], description: "description 2", picture: "https://picsum.dev/image/1276/view" , category: "category 1", iStatus: "BlackFriday" },
+    { id: 3, name: "item 3", price: 300, stock: 30, tags: ["tag 5", "tag 6"], description: "description 3", picture: "https://picsum.dev/image/1277/view" , category: "category 2", iStatus: "" },
+    { id: 4, name: "item 4", price: 400, stock: 40, tags: ["tag 7", "tag 8"], description: "description 4", picture: "" , category: "category 3", iStatus: "" },
+    { id: 5, name: "item 5", price: 500, stock: 0, tags: ["tag 9", "tag 10"], description: "description 5", picture: "" , category: "category 4", iStatus: "no longer available" },
+    { id: 6, name: "item 6", price: 600, stock: 60, tags: ["tag 11", "tag 12"], description: "description 6", picture: "" , category: "category 5", iStatus: "" },
+    { id: 7, name: "item 7", price: 700, stock: 70, tags: ["tag 13", "tag 14"], description: "description 7", picture: "" , category: "category 6", iStatus: "" },
+    { id: 8, name: "item 8", price: 800, stock: 80, tags: ["tag 15", "tag 16"], description: "description 8", picture: "" , category: "category 7", iStatus: "" },
+    { id: 9, name: "item 9", price: 900, stock: 90, tags: ["tag 17", "tag 18", "tag 19", "tag 20", ], description: "description 9", picture: "" , category: "category 8", iStatus: "" },
+    { id: 10, name: "item 10", price: 10000000, stock: 100, tags: ["tag 19", "tag 20"], description: "description 10", picture: "" , category: "category 9", iStatus: "" },
   ]);
+
+var shoppingCart = ref([
+    { itemID: 1, cuantity: 2 },
+    { itemID: 3, cuantity: 3 },
+    { itemID: 5, cuantity: 4 },
+    { itemID: 7, cuantity: 5 },
+    { itemID: 9, cuantity: 6 },
+])
 
 var facturas = ref([
     { id: 1, name: "factura 1", items: [{id: 1, cuantity: 2}, {id: 2, cuantity: 3}], client: {id: 1, name: "client 1" }},
@@ -53,11 +61,11 @@ function addFactura(factura: any) {
 }
 
 function addItem(item: any) {
-    inventary.value.push(item)
+    inventory.value.push(item)
 }
 
 function removeItem(id: number) {
-    inventary.value = inventary.value.filter(item => item.id !== id)
+    inventory.value = inventory.value.filter(item => item.id !== id)
 }
 
 function removeClient(id: number) {
@@ -68,4 +76,4 @@ function removeFactura(id: number) {
     facturas.value = facturas.value.filter(factura => factura.id !== id)
 }
 
-export { inventary, clients, facturas }
+export { inventory, clients, facturas, tags, addClient, addFactura, addItem, removeItem, removeClient, removeFactura }

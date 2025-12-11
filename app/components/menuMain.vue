@@ -84,7 +84,7 @@ function toggleFullScreen() {
   <div class="flex flex-col overflow-y-auto" :class="{ 'p-4 w-72': !miniMenu, 'p-2 w-16 content-center': miniMenu }">
     <div class="flex my-2" :class="{ 'flex-col gap-4': miniMenu }">
       <UAvatar v-if="miniMenu" class="m-auto w-10 h-10" name="ORBE" description="ERP Software" size="2xl"
-        :src=brandLogo />
+        :src="brandLogo" />
       <UUser v-if="!miniMenu" class="my-6 w-5/6" name="ORBE ERP" description="ERP Software" size="2xl" :avatar="{
         src: brandLogo,
         icon: 'i-lucide-image'
