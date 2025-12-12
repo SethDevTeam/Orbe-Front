@@ -1,46 +1,47 @@
 export interface InventoryItem {
-        id: number;
-        name: string;
-        price: number;
-        stock: number;
-        tags: string[];
-        description: string;
-        picture: string;
-        category: string;
-        iStatus: string;
+        id: number
+        name: string
+        price: number
+        stock: number
+        tags: string[]
+        description: string
+        picture: string
+        category: string
+        iStatus: string
 }
 
 export interface Client {
-        id: number;
-        name: string;
-        address: string;
-        phone: string;
-        email: string;
+        id: number
+        first_name: string
+        last_name: string
+        phone1: string
+        phone2: string | null
+        email: string
+        address: string
 }
 
 export interface ShoppingCartItem {
-        itemID: number;
-        cuantity: number;
+        itemID: number
+        cuantity: number
 }
 
-// Interfaces for the Invoice object (can be internal or external, keeping them external here)
 export interface InvoiceItem {
-        id: number;
-        cuantity: number;
+        id: number
+        cuantity: number
 }
 
 export interface InvoiceClient {
-        id: number;
-        name: string;
+        id: number
+        name: string
 }
 
 export interface Invoice {
-        id: number;
-        name: string;
-        items: InvoiceItem[];
-        client: InvoiceClient;
+        id: number
+        name: string
+        items: InvoiceItem[]
+        client: InvoiceClient
 }
 
 export interface Tag {
-        tag: string;
+        tag: string
 }

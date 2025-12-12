@@ -1,5 +1,3 @@
-// app/composables/useInvoicingData.ts
-
 import type { InventoryItem, Client, Invoice } from '~/types/inventory'
 
 export const useInvoicingData = () => {
@@ -26,15 +24,14 @@ export const useInvoicingData = () => {
                 inventory.value.push(item)
         }
 
-        const updateInventoryItem = (id: number, updates: Partial<InventoryItem>) => {
+        // Update item in inventory
+        const updateInventoryItem = (id: number, updates: Partial<Omit<InventoryItem, 'id'>>) => {
                 const index = inventory.value.findIndex(item => item.id === id)
                 if (index !== -1) {
-                        // Create a new object with all required properties
-                        const currentItem = inventory.value[index]
                         inventory.value[index] = {
-                                ...currentItem,
+                                ...inventory.value[index],
                                 ...updates
-                        } as InventoryItem // Type assertion after merging ensures all required fields exist
+                        } as InventoryItem
                 }
         }
 
@@ -43,12 +40,33 @@ export const useInvoicingData = () => {
                 inventory.value = inventory.value.filter(item => item.id !== id)
         }
 
+        // Add client
+        const addClient = (client: Client) => {
+                clients.value.push(client)
+        }
+
+        // Update client
+        const updateClient = (id: number, updates: Partial<Omit<Client, 'id'>>) => {
+                const index = clients.value.findIndex(client => client.id === id)
+                if (index !== -1) {
+                        clients.value[index] = {
+                                ...clients.value[index],
+                                ...updates
+                        } as Client
+                }
+        }
+
+        // Remove client
+        const removeClient = (id: number) => {
+                clients.value = clients.value.filter(client => client.id !== id)
+        }
+
         // Return all state and functions
         return {
-                // State - Return computed refs instead of readonly for better compatibility
-                inventory: computed(() => inventory.value),
-                clients: computed(() => clients.value),
-                invoices: computed(() => invoices.value),
+                // Mutable state
+                inventory,
+                clients,
+                invoices,
 
                 // Mutator functions
                 setInventory,
@@ -57,5 +75,8 @@ export const useInvoicingData = () => {
                 addInventoryItem,
                 updateInventoryItem,
                 removeInventoryItem,
+                addClient,
+                updateClient,
+                removeClient,
         }
 }
