@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import mainDashboard from '~/components/main/mainDashboard.vue'
-import mainInvoicing from '~/components/main/mainInventory.vue'
+import mainInvoicing from '~/components/main/mainInvoicing.vue'
 import mainCRM from '~/components/main/mainCRM.vue'
 import mainInventory from '~/components/main/mainInventory.vue'
 import mainPayroll from '~/components/main/mainPayroll.vue'
