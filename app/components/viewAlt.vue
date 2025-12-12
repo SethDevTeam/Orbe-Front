@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import altDashboard from '~/components/alt/altDashboard.vue'
-import altBilling from '~/components/alt/altBilling.vue'
+import altInvoicing from '~/components/alt/altInvoicing.vue'
 import altCRM from '~/components/alt/altCRM.vue'
 import altInventory from '~/components/alt/altInventory.vue'
 import altPayroll from '~/components/alt/altPayroll.vue'
@@ -16,7 +16,7 @@ const ui = uiStore()
 
 const currentComponent = computed(() => ({
   Dashboard: altDashboard,
-  Billing: altBilling,
+  Invoicing: altInvoicing,
   CRM: altCRM,
   Inventory: altInventory,
   Payroll: altPayroll,
@@ -30,5 +30,5 @@ const currentComponent = computed(() => ({
 </script>
 
 <template>
-<component :is="currentComponent" />
+  <component :is="currentComponent" />
 </template>

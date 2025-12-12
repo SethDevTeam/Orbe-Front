@@ -31,7 +31,7 @@ var shoppingCart = ref([
   { itemID: 9, cuantity: 6 },
 ])
 
-var bills = ref([
+var invoice = ref([
   { id: 1, name: "factura 1", items: [{ id: 1, cuantity: 2 }, { id: 2, cuantity: 3 }], client: { id: 1, name: "client 1" } },
   { id: 2, name: "factura 2", items: [{ id: 3, cuantity: 4 }, { id: 4, cuantity: 5 }], client: { id: 2, name: "client 2" } },
   { id: 3, name: "factura 3", items: [{ id: 5, cuantity: 6 }, { id: 6, cuantity: 7 }], client: { id: 3, name: "client 3" } },
@@ -56,8 +56,8 @@ function addClient(client: any) {
   clients.value.push(client)
 }
 
-function addBill(bill: any) {
-  bills.value.push(bill)
+function addInvoice(invoice: any) {
+  invoice.value.push(invoice)
 }
 
 function addItem(item: any) {
@@ -72,8 +72,8 @@ function removeClient(id: number) {
   clients.value = clients.value.filter(client => client.id !== id)
 }
 
-function removeBill(id: number) {
-  bills.value = bills.value.filter(bill => bill.id !== id)
+function removeInvoice(id: number) {
+  invoice.value = invoice.value.filter(invoice => invoice.id !== id)
 }
 
-export { inventory, clients, bills, tags, addClient, addBill, addItem, removeItem, removeClient, removeBill }
+export { inventory, clients, invoice, tags, addClient, addInvoice, addItem, removeItem, removeClient, removeInvoice }

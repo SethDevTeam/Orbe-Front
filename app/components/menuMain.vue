@@ -15,9 +15,9 @@ const mainItems = [
     icon: 'material-symbols:dashboard'
   },
   {
-    label: 'Billing',
-    value: 'Billing',
-    description: 'Manage billing and payment operations.',
+    label: 'Invoicing',
+    value: 'Invoicing',
+    description: 'Manage invoicing and payment operations.',
     icon: 'material-symbols:receipt'
   },
   {

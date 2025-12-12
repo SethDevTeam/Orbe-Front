@@ -2,7 +2,7 @@
 import { ref, watch, onMounted } from 'vue'
 import { debounce } from 'lodash-es'
 import itemCard from '~/components/items/itemCard.vue'
-import { inventory, clients, bills, addClient, addBill, addItem, removeItem, removeClient, removeBill } from '~/composables/composable'
+import { inventory, clients, invoice, addClient, addInvoice, addItem, removeItem, removeClient, removeInvoice } from '~/composables/composable'
 
 interface Item {
   id: number
@@ -45,7 +45,7 @@ watch(productSearchBox, searchProducts)
 
 <template>
   <div class="w-full h-full flex flex-col p-2 sm:p-4 gap-2">
-    <h1 class="w-full text-center text-2xl mb-2">Billing # AAAXXX</h1>
+    <h1 class="w-full text-center text-2xl mb-2">Invoicing # AAAXXX</h1>
 
     <div class="flex gap-2">
       <USelectMenu class="flex-1" :items="clients" placeholder="Select client" icon="material-symbols:person"

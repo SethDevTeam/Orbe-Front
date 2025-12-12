@@ -2,12 +2,12 @@ async function dynamicSearch(name: string) {
   // Import inventory database and show it in the console log
   const db = useDatabase("prototypeDB");
 
-  const bills = await db.sql`
-    SELECT * FROM bills
+  const invoices = await db.sql`
+    SELECT * FROM invoices
     WHERE name LIKE '%${name}%'
   `;
 
-  console.log(bills);
+  console.log(invoices);
 }
 
 export { dynamicSearch }
