@@ -1,13 +1,20 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-	ssr: false, // Disable server-side rendering
-	compatibilityDate: "2025-07-15",
-	devtools: { enabled: true },
-	modules: ["@nuxt/ui", "@pinia/nuxt"],
-	css: ["~/assets/css/main.css"],
-	nitro: {
-		experimental: {
-			database: true,
-		},
-	},
-});
+  compatibilityDate: '2024-11-01',
+  devtools: { enabled: true },
+  modules: ["@nuxt/ui", "@pinia/nuxt"],
+  css: ["~/assets/css/main.css"],
+  nitro: {
+    experimental: {
+      database: true,
+    },
+    database: {
+      prototype: {
+        connector: 'better-sqlite3',
+        options: {
+          // Use process.cwd() to get the project root, then append the path
+          name: `${process.cwd()}/server/db/prototype.sqlite`
+        }
+      }
+    }
+  }
+})
